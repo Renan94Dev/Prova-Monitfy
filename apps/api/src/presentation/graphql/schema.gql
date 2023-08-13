@@ -1,0 +1,67 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type UserSchemaModel {
+  """User ID"""
+  id: String!
+
+  """User name"""
+  name: String!
+
+  """User email"""
+  email: String!
+
+  """Indicate coupon"""
+  indicateCoupon: String
+  coupon: CouponSchemaModel!
+}
+
+type CouponSchemaModel {
+  """Coupon ID"""
+  id: String!
+
+  """Coupon code"""
+  code: String!
+  user: UserSchemaModel!
+}
+
+type LinksSchemaModel {
+  """Link ID"""
+  id: String!
+
+  """Origin url link"""
+  original_link: String!
+
+  """Custom url link"""
+  custom_link: String!
+
+  """Acesses count"""
+  access_count: Int!
+}
+
+type Query {
+  users: [UserSchemaModel!]!
+  links: [LinksSchemaModel!]!
+}
+
+type Mutation {
+  createUser(createUserInput: CreateUserInput!): UserSchemaModel!
+  createLink(createLinkInput: CreateLinkInput!): LinksSchemaModel!
+}
+
+input CreateUserInput {
+  """User name"""
+  name: String!
+
+  """User email"""
+  email: String!
+
+  """Indicate coupon"""
+  indicateCoupon: String
+}
+
+input CreateLinkInput {
+  """Url link"""
+  link: String!
+}

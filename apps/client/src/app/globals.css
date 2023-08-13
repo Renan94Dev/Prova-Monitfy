@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply outline-none;
+}
+
+body {
+  @apply bg-graybg text-primary;
+}
+
+h2 {
+  @apply text-2xl font-normal;
+}
+
+p {
+  @apply text-base font-normal;
+}
+
+label {
+  @apply text-sm;
+}
+
+input {
+  @apply border-borders border h-14 rounded-lg px-6 text-sm text-primary w-full;
+}
+
+input:focus {
+  @apply border-2 border-primary;
+}
+
+input::placeholder {
+  @apply text-transparent text-sm font-normal;
+}
+
+input:focus::placeholder {
+  @apply text-tplaceholder;
+}
+
+fieldset {
+  @apply flex flex-col gap-2;
+}

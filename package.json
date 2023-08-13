@@ -1,0 +1,23 @@
+{
+  "name": "monitfy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "turbo dev --parallel",
+    "start:api": "cd apps/api && npm run start:prod",
+    "start:client": "cd apps/client && npm start",
+    "start": "concurrently \"npm run start:api\" \"npm run start:client\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@nestjs/cli": "^10.1.11",
+    "concurrently": "^8.2.0",
+    "turbo": "^1.10.12"
+  }
+}

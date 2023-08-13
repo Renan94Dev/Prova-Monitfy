@@ -1,0 +1,41 @@
+version: "3.9"
+
+services:
+  appapi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nestjs-nextjs-app
+    # entrypoint: sh -c "npm install && npm run dev"
+    ports:
+      - 3000:3000
+      - 3001:3001
+    # volumes:
+    #   - .:/home/node/app
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:latest
+    container_name: postgres_monitfy
+    environment:
+      POSTGRES_DB: monitfy
+      POSTGRES_USER: guest
+      POSTGRES_PASSWORD: guest
+    ports:
+      - "5432:5432"
+
+  adminer:
+    image: adminer
+    container_name: adminer-container
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+
+  redis:
+    image: redis:6.2-alpine
+    container_name: redis
+    ports:
+      - 6379:6379
+    restart: always
