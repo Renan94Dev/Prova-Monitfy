@@ -6,12 +6,9 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: nestjs-nextjs-app
-    # entrypoint: sh -c "npm install && npm run dev"
     ports:
       - 3000:3000
       - 3001:3001
-    # volumes:
-    #   - .:/home/node/app
     depends_on:
       - postgres
 
